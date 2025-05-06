@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+{% block content %}
+
+<style>
+	label {
+		
+		display: none;
+	}
+
+    body {
+
+        background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+
+        background-size: cover;
+
+    }
+
+    .overlay {
+
+        background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+
+        backdrop-filter: blur(6px); /* Blur effect */
+
+        min-height: 100vh;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+    }
+
+    .card {
+
+        background-color: rgba(255, 255, 255, 0.1);
+
+        border: none;
+
+        backdrop-filter: blur(10px);
+
+        border-radius: 10px;
+
+        padding: 2rem;
+
+        color: #fff;
+
+        width: 100%;
+
+        max-width: 600px;
+
+    }
+
+    .form-control {
+
+        background-color: rgba(255, 255, 255, 0.2);
+
+        border: none;
+
+        color: white;
+
+    }
+
+    .form-control::placeholder {
+
+        color: #ccc;
+
+    }
+
+</style>
+
+
+
+<div class="overlay">
+
+    <div class="card shadow-lg">
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-3">Plan today <span class="text-danger">for a better</span> tomorrow.</h2>
+
+    <p class="text-center text-white mb-4">Log In to Stay Organized</p>
+
+</div>
+
+<form action="" method="post" class="">
+
+    {%csrf_token%}
+
+    {{form.as_p}}
+
+    <div class="text-center">
+
+    <button type="submit" class="btn btn-primary mb-3">Login</button>
+	<a href="{% url 'forgot' %}" class="btn btn-primary mb-3 ms-2">Forgot password</a>
+
+    </div>
+
+</form>
+
+</div>
+
+</div>
+{% endblock %}

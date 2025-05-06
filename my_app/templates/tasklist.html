@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Task List</title>
+{% endblock %}
+
+{% block content %}
+
+<style>
+	body {
+
+		background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+
+		background-size: cover;
+
+	}
+
+	.overlay {
+
+		background-color: rgba(0, 0, 0, 0.6);
+		/* Dark overlay */
+
+		backdrop-filter: blur(6px);
+		/* Blur effect */
+
+		min-height: 100vh;
+
+		display: flex;
+
+		justify-content: center;
+
+		align-items: center;
+
+	}
+
+	.card {
+
+		background-color: rgba(255, 255, 255, 0.1);
+
+		border: none;
+
+		backdrop-filter: blur(10px);
+
+		border-radius: 10px;
+
+		padding: 2rem;
+
+		color: #fff;
+
+		width: 100%;
+
+		max-width: 600px;
+
+	}
+
+	.form-control {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-select {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-control::placeholder {
+
+		color: #ccc;
+
+	}
+</style>
+<div class="overlay">
+
+	<div class="card shadow-lg">
+
+		<div class="container mt-2">
+
+			<h2 class="text-center">Hi...{{request.user}}! Welcome back!</h2>
+		</div>
+		
+		<div class="container mt-2">
+			<table class="table w-100 mx-auto mt-2">
+				{% for i in items %}
+
+				<tr mt-1>
+
+					{% if i.completed_status %}
+					<td><a href="{% url 'detail' pk=i.pk %}"
+							class="text-dark text-decoration-line-through"><b>{{i.task_name}}</b></a></td>
+
+					{% else %}
+					<td><a href="{% url 'detail' pk=i.pk %}"
+							class="text-decoration-none text-dark"><b>{{i.task_name}}</b></a></td>
+
+					{% endif %}
+
+					<td><a href="{% url 'detail' pk=i.pk %}"
+							class="text-decoration-none text-dark text-muted">{{i.due_date}}</a></td>
+					<td><a href="{% url 'update' i.id %}" class="text-decoration-none text-dark">Update</a></td>
+
+					{% if i.completed_status %}
+					<td>Done</td>
+
+					{% else %}
+					<td><a href="{% url 'edit' pk=i.pk %}" class="text-decoration-none text-dark">Mark as done!</a></td>
+
+					{% endif %}
+
+					<td><a href="{% url 'delete' i.id %}" class="text-decoration-none text-dark">Delete</a></td>
+
+				</tr>
+
+				{% endfor %}
+
+			</table>
+			<div class="text-center my-3">
+				<a href="{% url 'create' %}" class="text-decoration-none text-white" style>Add Task</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

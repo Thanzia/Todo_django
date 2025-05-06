@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Details</title>
+{% endblock %}
+
+{% block content %}
+<div class="card text-center mt-5 w-75 mx-auto">
+	<div class="my-auto">
+		<h2>Hi..{{request.user}}, Your Taskname is {{item.task_name}}</h2>
+		<h4>Created date: {{item.created_date}}</h4>
+		<h4>Status: {{item.completed_status}}</h4>
+		
+	</div>
+</div>
+
+{% endblock %}

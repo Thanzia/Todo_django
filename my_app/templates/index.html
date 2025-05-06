@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+	body {
+
+		background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+
+		background-size: cover;
+
+	}
+
+	.overlay {
+
+		background-color: rgba(0, 0, 0, 0.6);
+		/* Dark overlay */
+
+		backdrop-filter: blur(6px);
+		/* Blur effect */
+
+		min-height: 100vh;
+
+		display: flex;
+
+		justify-content: center;
+
+		align-items: center;
+
+	}
+
+	.card {
+
+		background-color: burlywood;
+
+		border: none;
+
+		backdrop-filter: blur(10px);
+
+		border-radius: 10px;
+
+		padding: 2rem;
+
+		color: #fff;
+
+		width: 100%;
+
+		max-width: 600px;
+
+	}
+
+	.form-control {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-select {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-control::placeholder {
+
+		color: #ccc;
+
+	}
+</style>
+
+
+<div class="overlay">
+
+			<div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+				<div class="card-body text-center">
+					{% csrf_token %}
+					<h2 class="card-title mb-4">Welcome Back</h2>
+					<h4 class="text-center mb-3">What would <span class="text-danger">U</span>  like to do?</h4>
+					<div class="d-grid gap-3">
+						<a href="{% url 'create' %}" class="btn btn-secondary">Add Task</a>
+						<a href="{% url 'task_list' %}" class="btn btn-secondary">List Task</a>
+					</div>
+				</div>
+			</div>
+</div>
+{% endblock %}

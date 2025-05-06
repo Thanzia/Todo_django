@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+	body {
+
+		background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+
+		background-size: cover;
+
+	}
+
+	.overlay {
+
+		background-color: rgba(0, 0, 0, 0.6);
+		/* Dark overlay */
+
+		backdrop-filter: blur(6px);
+		/* Blur effect */
+
+		min-height: 100vh;
+
+		display: flex;
+
+		justify-content: center;
+
+		align-items: center;
+
+	}
+
+	.card {
+
+		background-color: burlywood;
+
+		border: none;
+
+		backdrop-filter: blur(10px);
+
+		border-radius: 10px;
+
+		padding: 2rem;
+
+		color: #fff;
+
+		width: 100%;
+
+		max-width: 600px;
+
+	}
+
+	.form-control {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-select {
+
+		background-color: rgba(255, 255, 255, 0.2);
+
+		border: none;
+
+		color: white;
+
+	}
+
+	.form-control::placeholder {
+
+		color: #ccc;
+
+	}
+</style>
+
+
+
+
+{% endblock %}
