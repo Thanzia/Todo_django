@@ -54,8 +54,10 @@ class ResetpasswordForm(forms.Form):
 
 class ContactForm(forms.Form):
 
-	user_name = forms.CharField(max_length=50)
+	user_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={"class":"form-control w-75 mx-auto","placeholder":"enter username"}))
 
-	email = forms.CharField(max_length=100)
+	email = forms.CharField(max_length=100,widget=forms.TextInput(attrs={"class":"form-control w-75 mx-auto","placeholder":"enter email"}))
 
-	message = forms.TextInput()
+	subject = forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control w-75 mx-auto","placeholder":"enter subject"}))
+
+	message = forms.CharField(widget=forms.Textarea(attrs={"class":"form-control w-75 mx-auto","placeholder":"enter your message here"}))

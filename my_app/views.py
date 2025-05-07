@@ -381,6 +381,23 @@ class ContactView(View):
 
 		form = ContactForm(request.POST)
 
+		if form.is_valid():
+
+			user_name = form.cleaned_data.get('user_name')
+
+			email = form.cleaned_data.get('email')
+
+			message = form.cleaned_data.get('message')
+
+			subject = form.cleaned_data.get('subject')
+
+			full_message = f"Message from {user_name} <{email}>:\n\n{message}"
+
+			send_mail(subject=subject,message=full_message,from_email="thanzia123@gmail.com",
+			          recipient_list=["gamej14235@nutrv.com"])
+			
+		form = ContactForm
+
 		return render(request,"contact.html",{"form":form})
 
 

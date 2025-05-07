@@ -34,5 +34,6 @@ urlpatterns = [
 	path('todo/otp_verify/',OtpVerifyView.as_view(),name="otp_verify"),
 	path('todo/reset_pwd/',ResetPasswordView.as_view(),name="reset_pwd"),
 	path('todo/filter/',TaskFilterView.as_view(),name="filter"),
+	path('todo/contact/',ContactView.as_view(),name="contact"),
 	
 ]
